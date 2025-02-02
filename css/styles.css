@@ -174,11 +174,6 @@ body {
   }
 }
 
-.robot-nose:before {
-}
-
-.robot-nose:after {
-}
 
 .robot-teeth {
   display: flex;
