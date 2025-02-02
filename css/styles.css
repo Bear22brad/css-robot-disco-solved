@@ -5,24 +5,173 @@ body {
 /* 👇👇👇 Paste the styles of your Fancy Robot from the "Position it right" assignment here 👇👇👇 */
 
 .robot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 80vh;
+  width: 1000px;
+  position: relative;
 }
 
 .robot-face-shape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 500px;
+  width: 600px;
+  background: #aa4b6b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3b8d99,
+    #6b6b83,
+    #aa4b6b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3b8d99,
+    #6b6b83,
+    #aa4b6b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 20px;
+  border: 10px solid #000000;
+  margin: 0 auto;
+}
+.robot-eye-left {
+  position: absolute;
+  top: 100px;
+  left: 125px;
+  height: 150px;
+  width: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: eye-left-animation 2s infinite;
 }
 
-.robot-eye-left {
+@keyframes eye-left-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .robot-eye-right {
+  position: absolute;
+  top: 120px;
+  left: 375px;
+  height: 100px;
+  width: 100px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  transform: rotate(45deg);
+  animation: eye-right-animation 5s infinite;
+}
+
+@keyframes eye-right-animation {
+  0% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
 }
 
 .robot-ear-left {
+  position: absolute;
+  top: 200px;
+  left: 90px;
+  height: 200px;
+  width: 100px;
+  background-color: #000000;
+  border-radius: 10px;
+  animation: robotEarWiggle-left 5s infinite alternate ease-in-out;
+}
+
+@keyframes robotEarWiggle-left {
+  0% {
+    transform: rotate(180deg);
+    background-color: #3D7A89;
+  }
+  25% {
+    transform: rotate(190deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    background-color: #606178;
+  }
+  75% {
+    transform: rotate(170deg);
+  }
+  100% {
+    transform: rotate(180deg);
+    background-color: #9D4361;
+  }
 }
 
 .robot-ear-right {
+  position: absolute;
+  top: 250px;
+  right: 40px;
+  height: 100px;
+  width: 200px;
+  background-color: #000000;
+  border-radius: 100px 100px 0 0;
+  transform: rotate(90deg);
+  animation: robotEarWiggle 5s infinite alternate ease-in-out;
+}
+
+@keyframes robotEarWiggle {
+  0% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(100deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(-100deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
 }
 
 .robot-nose {
+  position: absolute;
+  top: 250px;
+  left: 250px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-image: url("https://picsum.photos/100");
+  animation: nose-animation 5s infinite;
+}
+
+@keyframes nose-animation {
+  0% {
+    transform: scale(1);
+    background-image: url("https://picsum.photos/100?random=1");
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+    background-image: url("https://picsum.photos/100?random=2");
+  }
 }
 
 .robot-nose:before {
@@ -32,10 +181,99 @@ body {
 }
 
 .robot-teeth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 360px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: 70%;
+  border-radius: 5px;
+  background-color: #000000;
 }
 
-.robot-tooth {
+.robot-tooth:nth-child(-n + 6) {
+  background-color: #fdfdfd;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  transform: rotate(90deg);
+  align-self: flex-start;
+  animation: tooth-animation 5s infinite alternate ease-in-out;
 }
+
+@keyframes tooth-animation {
+  0% {
+    transform: translate(50px, 0);
+  }
+  25% {
+    transform: translate(50px, 50px);
+  }
+  50% {
+    transform: translate(-50px, 50px);
+  }
+  75% {
+    transform: translate(-50px, 0);
+  }
+  100% {
+    transform: translate(50px, 0);
+  }
+}
+
 
 .robot-hair-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  width: 400px;
+  height: 100px;
+  gap: 10px;
+}
+
+.robot-hair-style:hover {
+  animation: hair-animation 2s infinite alternate ease-in-out;
+}
+
+@keyframes hair-animation {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.25);
+  }
+}
+.robot-hair-one {
+  height: 60px;
+  width: 10px;
+  background-color: #000000;
+  border-radius: 10px;
+  transform: rotate(90deg);
+}
+
+#robot-hair-two {
+  height: 80px;
+  width: 10px;
+  background-color: #000000;
+  border-radius: 10px;
+  transform: rotate(-45deg);
+}
+
+.robot-hair-two {
+  height: 80px;
+  width: 10px;
+  background-color: #000000;
+  border-radius: 10px;
+  transform: rotate(45deg);
+}
+
+.robot-hair-three {
+  height: 6.25em;
+  width: 10px;
+  background-color: #000000;
+  border-radius: 10px;
 }
